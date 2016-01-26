@@ -23,20 +23,6 @@
 <script>
   Kakao.init('aba6a8ebc76d10a35561d614f0824d12');
   $("#kakao-link-btn").click(function () {
-    $.confirm({
-      title: '',
-      content: '야놀자 바로예약에서 카카오톡을 열려고 합니다.',
-      confirmButton: '확인',
-      confirmButtonClass: 'btn-info',
-      icon: 'fa fa-question-circle',
-      animation: 'scale',
-      confirm: function () {
-        openKakao();
-      }
-    });
-  });
-
-  function openKakao() {
     Kakao.Link.createTalkLinkButton({
       container: '#kakao-link-btn',
       label: getMessage(),
@@ -50,5 +36,6 @@
         url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
       }
     });
-  }
+  });
+
 </script>

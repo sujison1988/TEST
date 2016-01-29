@@ -1234,8 +1234,8 @@
       var rules = {
         talkLink: {
           optional: {
-            label: _.passesOneOf([_.isString, _.isObject]),
             image: _.isObject,
+            label: _.passesOneOf([_.isString, _.isObject]),
             webImage: _.isObject,
             webButton: _.isObject,
             webLink: _.isObject,
@@ -1247,9 +1247,7 @@
             extras: _.isObject
           },
           before: function(settings) {
-            if (_.isString(settings.label)) {
-              settings.label = { text: settings.label };
-            }
+
           },
           defaults: {
             installTalk: true,

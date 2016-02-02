@@ -21,6 +21,16 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="scripts/kakao.js"></script>
 <script>
+  var filter = "win16|win32|win64|mac";
+
+  if( navigator.platform  ){
+    if( filter.indexOf(navigator.platform.toLowerCase())<0 ){
+      alert("모바일 기기에서 접속");
+    }else{
+      alert("PC에서 접속");
+    }
+  }
+
   Kakao.init('aba6a8ebc76d10a35561d614f0824d12');
   $("#kakao-link-btn").click(function () {
     Kakao.Link.createTalkLinkButton({

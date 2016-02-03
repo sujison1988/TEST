@@ -972,9 +972,7 @@
             KA: _k.KAKAO_AGENT
           };
 
-          alert('market://details?id=' + androidAppId + '&url=' + encodeURI("yanoljanow://?" + JSON.stringify(referrer)));
-
-          return 'market://details?id=' + androidAppId + '&url=' + encodeURI("yanoljanow://?" + JSON.stringify(referrer));
+          return 'market://details?id=' + androidAppId + '&url=yanoljanow://?' + JSON.stringify(referrer);
         } else if (_k.UA.os.ios) {
           return 'https://itunes.apple.com/app/id'+iOSAppId;
         } else {

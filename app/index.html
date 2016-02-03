@@ -33,8 +33,16 @@
     appButton: {
       text: '할인 받기',
       webUrl : 'http://m.yanoljanow.com',
-      execParams: { android : encodeURI('yanoljanow://?view=discount') },
-      marketParams: { android : encodeURI('yanoljanow://?view=discount') }
+      marketParams : {
+        android : {
+          view : 'discount'
+        }
+      },
+      execParams : {
+        android : {
+          view : 'discount'
+        }
+      }
     },
     fail: function(){
       alert('모바일 기기에서만 가능한 기능입니다.');

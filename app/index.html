@@ -19,7 +19,7 @@
 </html>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="scripts/kakao.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
   Kakao.init('aba6a8ebc76d10a35561d614f0824d12');
 
@@ -33,7 +33,17 @@
       label: 'TEST',
       appButton: {
         text: '할인 받기',
-        webUrl : 'http://m.yanoljanow.com'
+        webUrl : 'http://m.yanoljanow.com',
+        marketParams : {
+          android : {
+            url : encodeURI('yanoljanow://app.yanolja.com/?view=detail&idx=123&recommend=124234')
+          }
+        },
+        execParams : {
+          android : {
+            url : encodeURI('yanoljanow://app.yanolja.com/?view=detail&idx=123&recommend=124234')
+          }
+        }
       },
       fail: function(){
         alert('모바일 기기에서만 가능한 기능입니다.');

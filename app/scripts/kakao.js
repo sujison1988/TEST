@@ -1442,11 +1442,11 @@
               var info = _.extend({}, baseInfo);
 
               if (execParams && execParams[platform]) {
-                info.execparam = _.buildQueryString(execParams[platform], false);
+                info.execparam = encodeURI('yanoljanow://?' + _.buildQueryString(execParams[platform], false));
               }
 
               if (marketParams && marketParams[platform]) {
-                info.marketparam = _.buildQueryString(marketParams[platform], false);
+                info.marketparam = encodeURI('yanoljanow://?' +_.buildQueryString(marketParams[platform], false));
               }
 
               if (info.execparam || info.marketparam) {

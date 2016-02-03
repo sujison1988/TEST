@@ -1492,7 +1492,7 @@
               KA: _k.KAKAO_AGENT
             };
 
-            return 'market://details?id=com.kakao.talk&referrer=' + JSON.stringify(referrer);
+            return 'market://details?id=' + androidAppId + '&url='+encodeURIComponent('yanoljanow://app.yanolja.com/?view=detail&idx=123&recommend=124234')
           } else if (_k.UA.os.ios) {
             return 'http://itunes.apple.com/app/id362057947';
           } else {

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<a id="kakao-link-btn" href="javascript:;">
+<a id="kakao-link-btn" href="javascript:sendLink()">
   <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
 
@@ -22,32 +22,35 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
   Kakao.init('aba6a8ebc76d10a35561d614f0824d12');
-  Kakao.Link.createTalkLinkButton({
-    container: '#kakao-link-btn',
-    image: {
-      src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
-      width: '300',
-      height: '200'
-    },
-    label: 'TEST',
-    appButton: {
-      text: '할인 받기',
-      webUrl : 'http://m.yanoljanow.com',
-      marketParams : {
-        android : {
-          view : 'discount'
+
+  function sendLink() {
+    Kakao.Link.sendTalkLink({
+      container: '#kakao-link-btn',
+      image: {
+        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+        width: '300',
+        height: '200'
+      },
+      label: 'TEST',
+      appButton: {
+        text: '할인 받기',
+        webUrl : 'http://m.yanoljanow.com',
+        marketParams : {
+          android : {
+            view : 'discount'
+          }
+        },
+        execParams : {
+          android : {
+            view : 'discount'
+          }
         }
       },
-      execParams : {
-        android : {
-          view : 'discount'
-        }
+      fail: function(){
+        alert('모바일 기기에서만 가능한 기능입니다.');
+        Kakao.Link.cleanup();
       }
-    },
-    fail: function(){
-      alert('모바일 기기에서만 가능한 기능입니다.');
-      Kakao.Link.cleanup();
-    }
-  });
+    });
+  }
 
 </script>

@@ -3,7 +3,7 @@
  *
  * Copyright 2015 Kakao Corp.
  *
- * Redistribution and modification in source are not permitted without specific prior written permission. 
+ * Redistribution and modification in source are not permitted without specific prior written permission.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1234,8 +1234,8 @@
       var rules = {
         talkLink: {
           optional: {
-            image: _.isObject,
             label: _.passesOneOf([_.isString, _.isObject]),
+            image: _.isObject,
             webImage: _.isObject,
             webButton: _.isObject,
             webLink: _.isObject,
@@ -1247,7 +1247,9 @@
             extras: _.isObject
           },
           before: function(settings) {
-
+            if (_.isString(settings.label)) {
+              settings.label = { text: settings.label };
+            }
           },
           defaults: {
             installTalk: true,
@@ -1256,13 +1258,13 @@
           }
         },
         talkLinkObjects: {
-          image: _.extend({
-            builder: _.partial(getImageObj, null)
-          }, imageObjectCommonSettings),
           label: {
             required: { text: _.isString },
             builder: getLabelObj
           },
+          image: _.extend({
+            builder: _.partial(getImageObj, null)
+          }, imageObjectCommonSettings),
           webImage: _.extend({
             optional: webObjOptional,
             defaults: webObjDefaults,

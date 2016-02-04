@@ -21,7 +21,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
-  Kakao.init('b23d8c7a3cb754b10482b358a703b0d3');
+  Kakao.init('aba6a8ebc76d10a35561d614f0824d12');
 
   function sendLink() {
     Kakao.Link.sendTalkLink({
@@ -35,6 +35,11 @@
         text: '할인 받기',
         webUrl : 'http://m.yanoljanow.com',
         marketParams : {
+          android : {
+            url : encodeURI('yanoljanow://app.yanolja.com/?view=detail&recommend=124234')
+          }
+        },
+        execParams : {
           android : {
             url : encodeURI('yanoljanow://app.yanolja.com/?view=detail&recommend=124234')
           }

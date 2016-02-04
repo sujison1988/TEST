@@ -33,7 +33,17 @@
       label: 'TEST',
       appButton: {
         text: '할인 받기',
-        webUrl : 'http://m.yanoljanow.com'
+        webUrl : 'http://m.yanoljanow.com',
+        marketParams : {
+          android : {
+            url : encodeURI('yanoljanow://app.yanolja.com/?view=detail&recommend=124234')
+          }
+        },
+        execParams : {
+          android : {
+            url : encodeURI('yanoljanow://app.yanolja.com/?view=detail&recommend=124234')
+          }
+        }
       },
       fail: function(){
         alert('모바일 기기에서만 가능한 기능입니다.');

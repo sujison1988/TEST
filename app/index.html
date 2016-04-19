@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<a id="kakao-link-btn" href="javascript:sendLink()" class="invite_kakao">
+<a id="invite_kakao" href="javascript:sendLink()">
   <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
 
@@ -26,7 +26,7 @@
   var link = "http://local.m.member.yanoljanow.com/member/divide";
   function sendLink() {
     Kakao.Link.createTalkLinkButton({
-      container: '.invite_kakao',
+      container: '#invite_kakao',
       image: {
         src: "http://img.yanoljanow.com/img/event/mw/20160304/img-kakao.png",
         width: '300',

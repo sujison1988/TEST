@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<a id="kakao-link-btn" href="javascript:sendLink()">
+<a id="kakao-link-btn">
   <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
 
@@ -25,8 +25,8 @@
 
   var memberCode = 'test';
 
-  function sendLink() {
-    Kakao.Link.sendTalkLink({
+    Kakao.Link.createTalkLinkButton({
+      container : '#kakao-link-btn',
       image: {
         src: "http://img.yanoljanow.com/img/event/mw/20160304/img-kakao.png",
         width: '300',
@@ -45,6 +45,5 @@
     });
 
 
-  }
 
 </script>

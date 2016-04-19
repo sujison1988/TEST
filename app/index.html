@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<a id="kakao-link-btn">
+<a id="kakao-link-btn" href="javascript:sendLink()" class="invite_kakao">
   <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
 </a>
 
@@ -21,12 +21,12 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
-  Kakao.init('4cec1ff1eb6c6293965156c8112ac462');
+  Kakao.init('e55eb50422de9e3c4f7bea54d2713290');
 
-  var memberCode = 'test';
-
+  var link = "http://local.m.member.yanoljanow.com/member/divide";
+  function sendLink() {
     Kakao.Link.createTalkLinkButton({
-      container : '#kakao-link-btn',
+      container: '.invite_kakao',
       image: {
         src: "http://img.yanoljanow.com/img/event/mw/20160304/img-kakao.png",
         width: '300',
@@ -36,14 +36,12 @@
       "\n\n가입 화면에 입력된 할인코드 [" + memberCode + "] 를 확인하세요. \n가입 완료 즉시 사용 가능한 5,000원 할인쿠폰을 받을 수 있습니다.",
       webButton: {
         text: '할인 받기',
-        url: 'm.yanoljanow.com'
+        url: link
       },
       fail: function () {
         alert('모바일 기기에서만 가능한 기능입니다.');
         Kakao.Link.cleanup();
       }
     });
-
-
-
+  }
 </script>

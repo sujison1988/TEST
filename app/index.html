@@ -11,9 +11,11 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<a id="invite_kakao" href="javascript:sendLink()">
+<!--<a id="invite_kakao" href="javascript:;">
   <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/>
-</a>
+</a>-->
+
+<a id="kakao-link-btn" href="javascript:;"><img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg"/></a>
 
 </body>
 </html>
@@ -23,7 +25,41 @@
 <script>
   Kakao.init('4cec1ff1eb6c6293965156c8112ac462');
 
-  function sendLink() {
+  Kakao.Link.createTalkLinkButton({
+    container: '#kakao-link-btn',
+    image: {
+      src: "http://img.yanoljanow.com/img/event/mw/20160304/img-kakao.png",
+      width: '300',
+      height: '200'
+    },
+    label: "좋은 숙박 예약하는 Tip 공유해요~ \n\n최저가를 보장하는 야놀자에서 예약하면 모두가 개이득. \n오직 야놀자에서만 만날 수 있는 MY ROOM도 만나보세요. " +
+    "\n\n가입 화면에 입력된 할인코드 [TEST] 를 확인하세요. \n가입 완료 즉시 사용 가능한 5,000원 할인쿠폰을 받을 수 있습니다.",
+    appButton: {
+      text: '가입하고 할인 받기',
+      execParams: {
+        iphone: {
+          url: 'www.naver.com'
+        },
+        ipad: {
+          url: 'www.google.com'
+        }
+      },
+      marketParams: {
+        iphone: {
+          url: 'www.daum.net'
+        },
+        ipad: {
+          url: 'www.nate.com'
+        }
+      }
+    },
+    fail: function () {
+      alert('모바일 기기에서만 가능한 기능입니다.');
+      Kakao.Link.cleanup();
+    }
+  });
+
+  /*function sendLink() {
     Kakao.Link.sendTalkLink({
       image: {
         src: "http://img.yanoljanow.com/img/event/mw/20160304/img-kakao.png",
@@ -34,18 +70,18 @@
       "\n\n가입 화면에 입력된 할인코드 [TEST] 를 확인하세요. \n가입 완료 즉시 사용 가능한 5,000원 할인쿠폰을 받을 수 있습니다.",
       appButton: {
         text: '가입하고 할인 받기',
-        execParams: {
-          iphone: {
-            url: 'www.naver.com'
+          execParams: {
+            iphone: {
+              url: 'www.naver.com'
+            },
+            ipad: {
+              url: 'www.google.com'
+            }
           },
-          ipad: {
-            url: 'www.google.com'
-          }
-        },
-        marketParams: {
-          iphone: {
-            url: 'www.daum.net'
-          },
+          marketParams: {
+            iphone: {
+              url: 'www.daum.net'
+            },
           ipad: {
             url: 'www.nate.com'
           }
@@ -56,5 +92,5 @@
         Kakao.Link.cleanup();
       }
     });
-  }
+  }*/
 </script>
